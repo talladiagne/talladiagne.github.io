@@ -1,155 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Talla DIAGNE - Academic Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talla DIAGNE | Academic Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #1d3557;
+      --secondary: #457b9d;
+      --accent: #a8dadc;
+      --light: #f1faee;
+      --text: #333;
+      --bg: #f8f9fa;
+    }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    header, footer {
-      background-color: #1d3557;
+    header {
+      background-color: var(--primary);
       color: white;
-      text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      background-color: var(--secondary);
     }
     main {
       max-width: 900px;
-      margin: auto;
+      margin: 2rem auto;
       padding: 2rem;
-      background-color: #fff;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
-    h1, h2 {
-      color: #1d3557;
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+      color: var(--secondary);
     }
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
     ul {
-      padding-left: 20px;
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.8rem;
+    }
+    strong {
+      font-weight: 600;
     }
     a {
-      color: #1d3557;
+      color: var(--secondary);
       text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+    .download-btn:hover {
+      background-color: var(--secondary);
+      text-decoration: none;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .project-card {
+      border: 1px solid #e0e0e0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+    }
+    .timeline-item:after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 15px;
+      bottom: -2rem;
+      width: 1px;
+      background-color: #ddd;
+    }
+    .timeline-item:last-child:after {
+      display: none;
+    }
+    .skills-category {
+      margin-bottom: 1.5rem;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      background-color: var(--light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Talla DIAGNE</h1>
-    <p><a href="mailto:talla.diagne@institutoptique.fr">talla.diagne@institutoptique.fr</a></p>
+    <div class="header-container">
+      <h1>Talla DIAGNE</h1>
+      <nav>
+        <a href="#academic-cv" class="active">Academic CV</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>💼 Employment History</h2>
-      <ul>
-<li>
-  <strong>Jul. 2025 – Sept. 2025</strong> Research intern<br />
-  <a href="https://www.epfl.ch/labs/pvlab/" target="_blank" rel="noopener noreferrer">Photovoltaïc Lab at EPFL, Neuchâtel, Switzerland </a> <br />
-  Assessing the potential of solar-powered EV charging stations in Dakar: Analyzed workplace-based charging scenarios (naive, smart, bidirectional) using city-specific modeling to evaluate PV integration, energy self-sufficiency, and real-world scalability to optimize solar use for EVs while reducing grid impact and carbon emissions.
-</li>
-        <li>
-          <strong>Dec. 2022 – Sept. 2025</strong> Apprentice research engineer<br />
-          CEA LETI, Grenoble, France. DRT/DOPT/SNAP/LITE.<br />
-          Integration, piloting and testing of innovative photometric measuring instruments: Development of new means of characterizing microLED microdisplays GaN-on-Si intended for VR/AR applications.<br />
-          <em>Skills:</em> Semiconductors • Python • Optical instrumentation • Radiometry • Image processing • Wafer prober • Electro-optical testing • GUI design
-        </li>
-      </ul>
+    <!-- Academic CV Page -->
+    <section id="academic-cv" class="page active">
+      <h2>🎓 Academic Curriculum Vitae</h2>
+      
+      <section>
+        <h3>💼 Employment History</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>Jul. 2025 – Sept. 2025</strong> Research intern<br />
+            <a href="https://www.epfl.ch/labs/pvlab/" target="_blank" rel="noopener noreferrer">Photovoltaic Lab at EPFL</a>, Neuchâtel, Switzerland<br />
+            Assessing the potential of solar-powered EV charging stations in Dakar: Analyzed workplace-based charging scenarios (naive, smart, bidirectional) using city-specific modeling to evaluate PV integration, energy self-sufficiency, and real-world scalability to optimize solar use for EVs while reducing grid impact and carbon emissions.
+          </div>
+          
+          <div class="timeline-item">
+            <strong>Dec. 2022 – Sept. 2025</strong> Apprentice research engineer<br />
+            CEA LETI, Grenoble, France. DRT/DOPT/SNAP/LITE.<br />
+            Integration, piloting and testing of innovative photometric measuring instruments: Development of new means of characterizing microLED microdisplays GaN-on-Si intended for VR/AR applications.<br />
+            <em>Skills:</em> Semiconductors • Python • Optical instrumentation • Radiometry • Image processing • Wafer prober • Electro-optical testing • GUI design
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>🎓 Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>Sept. 2023 – Sept. 2025</strong><br />
+            <a href="https://www.univ-st-etienne.fr/fr/formation/master-XB/master-XB/master-optique-image-vision-multimedia-parcours-advanced-imaging-and-material-appearance-metrology-and-modeling-aima-5_09_07_0015_FR.html" target="_blank" rel="noopener noreferrer">Université Jean Monnet</a> (Saint-Étienne, France)<br />
+            Master of Science – OIVM-AIMA: Metrology & Modeling, Dual degree in Optics/Photonics
+          </div>
+          
+          <div class="timeline-item">
+            <strong>Sept. 2022 – Sept. 2025</strong><br />
+            <a href="https://www.institutoptique.fr/" target="_blank" rel="noopener noreferrer">Institut d'Optique Graduate School</a> – Université Paris-Saclay (Palaiseau, France)<br />
+            Master of Engineering – Optics and Photonics<br />
+            Relevant courses: Lasers – Semiconductors – Quantum mechanics – C – Optical Design – Instrumental & Physical Optics – Photometry & Radiometry – Signal Processing – Electromagnetism – Polarisation – Machine Learning – Non-linear Optics – Astronomical Interferometry – Colorimetry
+          </div>
+          
+          <div class="timeline-item">
+            <strong>Sept. 2020 – July 2022</strong><br />
+            <a href="https://lycee-poincare.fr/les-classes-preparatoires-cpge/" target="_blank" rel="noopener noreferrer">Lycée Henri Poincaré</a> (Nancy, France)<br />
+            PCSI/PC, Classes préparatoires<br />
+            Two-year intensive preparation for competitive entrance exams to top French engineering schools<br />
+            Courses: Physics – Chemistry – Mathematics – Computer Science
+          </div>
+          
+          <div class="timeline-item">
+            <strong>Oct. 2013 – Sept. 2020</strong><br />
+            <a href="https://prytanee.sn/" target="_blank" rel="noopener noreferrer">Prytanée Militaire de Saint-Louis</a> (Senegal)<br />
+            High school diploma, Science major<br />
+            Top national military & academic school
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>📚 Research Publications</h3>
+        <ul>
+          <li>
+            P. Le Maitre, X. Leboeuf, T. Diagne, et al., "Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm," in Proceedings of The Eurodisplay, Grenoble, France, 2024.
+            <a href="#" class="download-btn">View Publication</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🧠 Skills</h3>
+        <div class="skills-category">
+          <h4>Languages</h4>
+          <div class="skills-list">
+            <span class="skill-tag">English (TOEIC 980/990)</span>
+            <span class="skill-tag">French (Native)</span>
+            <span class="skill-tag">Wolof (Native)</span>
+            <span class="skill-tag">Spanish (Fluent)</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h4>Optics</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Microscope</span>
+            <span class="skill-tag">Afocal telescope</span>
+            <span class="skill-tag">Lasers</span>
+            <span class="skill-tag">Polarisation</span>
+            <span class="skill-tag">Interferometry</span>
+            <span class="skill-tag">Optical fibers</span>
+            <span class="skill-tag">Spatial filtering</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h4>Programming</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Python (OOP, HMI)</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">C</span>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h4>Tools</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Zemax</span>
+            <span class="skill-tag">LightTools</span>
+            <span class="skill-tag">GUI development</span>
+            <span class="skill-tag">Optical instrumentation</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>🌍 Volunteering & Experience</h3>
+        <ul>
+          <li>Scientific Outreach Project (2023): Contributed to a science popularization workshop on color science for primary school students</li>
+          <li>General Advisor, International Office – IOGS (2022–2023): Supported international students with administration, integration, and resource access</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>📜 Certifications</h3>
+        <ul>
+          <li>TOEIC 980/990 (March 2025) – ETS Global</li>
+          <li>PCSL Level 3 – Laser Safety Certification (June 2023) – CEA</li>
+          <li>Electrical Clearance – BE Essai (March 2023) – Apave</li>
+        </ul>
+      </section>
     </section>
 
-<section>
-  <h2>🎓 Education</h2>
-  <ul>
-    <li>
-      <strong>Sept. 2023 – Sept. 2025</strong><br />
-      <a href="https://www.univ-st-etienne.fr/fr/formation/master-XB/master-XB/master-optique-image-vision-multimedia-parcours-advanced-imaging-and-material-appearance-metrology-and-modeling-aima-5_09_07_0015_FR.html" target="_blank" rel="noopener noreferrer">Université Jean Monnet (Saint-Étienne, France)</a> <br />
-      Master of Science – OIVM-AIMA: Metrology & Modeling, Dual degree in Optics/Photonics
-    </li>
+    <!-- Research Page -->
+    <section id="research" class="page">
+      <h2>🔬 Research Activities</h2>
+      
+      <section>
+        <h3>Current Research</h3>
+        <div class="project-card">
+          <h4>Photovoltaic Lab at EPFL</h4>
+          <p><strong>Period:</strong> Jul. 2025 – Sept. 2025</p>
+          <p><strong>Focus:</strong> Solar-powered EV charging stations in Dakar</p>
+          <p><strong>Methods:</strong> City-specific modeling of charging scenarios (naive, smart, bidirectional)</p>
+          <p><strong>Outcomes:</strong> Evaluation of PV integration, energy self-sufficiency, and real-world scalability</p>
+        </div>
+        
+        <div class="project-card">
+          <h4>CEA LETI - MicroLED Characterization</h4>
+          <p><strong>Period:</strong> Dec. 2022 – Sept. 2025</p>
+          <p><strong>Focus:</strong> GaN-on-Si microdisplays for VR/AR applications</p>
+          <p><strong>Techniques:</strong> Electro-optical testing, wafer prober, radiometry</p>
+          <p><strong>Contribution:</strong> Developed new characterization methods for microLED displays</p>
+        </div>
+      </section>
 
-    <li>
-      <strong>Sept. 2022 – Sept. 2025</strong><br />
-      <a href="https://www.institutoptique.fr/" target="_blank" rel="noopener noreferrer">Institut d'Optique Graduate School – Université Paris-Saclay (Palaiseau, France)</a> <br />
-      Master of Engineering – Optics and Photonics<br />
-      Relevant courses: Lasers – Semiconductors – Quantum mechanics – C – Optical Design – Instrumental & Physical Optics – Photometry & Radiometry – Signal Processing – Electromagnetism – Polarisation – Machine Learning – Non-linear Optics – Astronomical Interferometry – Colorimetry
-    </li>
+      <section>
+        <h3>Publications</h3>
+        <div class="project-card">
+          <h4>Eurodisplay 2024</h4>
+          <p><strong>Title:</strong> "Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm"</p>
+          <p><strong>Authors:</strong> P. Le Maitre, X. Leboeuf, T. Diagne, et al.</p>
+          <p><strong>Conference:</strong> Proceedings of The Eurodisplay, Grenoble, France</p>
+          <a href="#" class="download-btn">Download Publication</a>
+        </div>
+      </section>
 
-    <li>
-      <strong>Sept. 2020 – July 2022</strong><br />
-      <a href="https://lycee-poincare.fr/les-classes-preparatoires-cpge/" target="_blank" rel="noopener noreferrer">Lycée Henri Poincaré (Nancy, France)</a> <br />
-      PCSI/PC, Classes préparatoires<br />
-      Two-year intensive preparation for competitive entrance exams to top French engineering schools<br />
-      Courses: Physics – Chemistry – Mathematics – Computer Science
-    </li>
-    
-    <li>
-      <strong>Oct. 2013 – Sept. 2020</strong><br />
-      <a href="https://prytanee.sn/" target="_blank" rel="noopener noreferrer">Prytanée Militaire de Saint-Louis (Senegal)</a> <br />
-      High school diploma, Science major<br />
-      Top national military & academic school
-    </li>
-  </ul>
-</section>
-
-    <section>
-      <h2>📚 Research Publications</h2>
-      <ul>
-        <li>
-          P. Le Maitre, X. Leboeuf, T. Diagne, et al., “Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm,” in Proceedings of The Eurodisplay, Grenoble, France, 2024.
-        </li>
-      </ul>
+      <section>
+        <h3>Research Interests</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Photovoltaics</span>
+          <span class="skill-tag">Optical Metrology</span>
+          <span class="skill-tag">MicroLED Technology</span>
+          <span class="skill-tag">AR/VR Displays</span>
+          <span class="skill-tag">Machine Learning in Optics</span>
+          <span class="skill-tag">Material Appearance</span>
+          <span class="skill-tag">Renewable Energy</span>
+        </div>
+      </section>
     </section>
 
-    <section>
-      <h2>🧠 Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> English (TOEIC 980/990) • French (Native) • Wolof (Native) • Spanish (Fluent)</li>
-        <li><strong>Optics:</strong> Microscope • Afocal telescope • Lasers • Polarisation • Interferometry (Michelson, Mach-Zehnder, Fizeau, Fabry-Perot) • Optical fibers • Spatial filtering</li>
-        <li><strong>Programming:</strong> Python (OOP, HMI) • MATLAB • C</li>
-        <li><strong>Tools:</strong> Zemax • LightTools • GUI development • Optical instrumentation</li>
-      </ul>
+    <!-- Projects Page -->
+    <section id="projects" class="page">
+      <h2>🧪 Academic Projects</h2>
+      
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Fluorescence Spectroscopy</h4>
+          <p><strong>Collaboration:</strong> Saint-Etienne Hospital</p>
+          <p>Research on actinic keratosis detection using fluorescence spectroscopy techniques</p>
+          <a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Fluorescence%20spectroscopy%20for%20actinic%20keratosis_DIAGNE_LANNEAU.pdf" download class="download-btn">Download Report</a>
+        </div>
+        
+        <div class="project-card">
+          <h4>Brain MRI Classification</h4>
+          <p><strong>Techniques:</strong> PCA & k-NN machine learning</p>
+          <p>Development of classification algorithms for brain MRIs using dimensionality reduction and nearest neighbor methods</p>
+          <a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Brain%20MRIs%20classification%20using%20machine%20learning_Talla%20DIAGNE.pdf" download class="download-btn">Download Report</a>
+        </div>
+        
+        <div class="project-card">
+          <h4>Metalens Design</h4>
+          <p><strong>Collaboration:</strong> STMicroelectronics</p>
+          <p>Design and optimization of metalenses for advanced optical applications</p>
+          <a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Metalens%20design_GOHIER_DIAGNE.pdf" download class="download-btn">Download Report</a>
+        </div>
+        
+        <div class="project-card">
+          <h4>Head-Up Display</h4>
+          <p><strong>Tools:</strong> Zemax</p>
+          <p>Optical design and optimization of head-up display systems</p>
+          <a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Talla_DIAGNE___Head-Up%20Display%20design%20%26%20optimization%20%E2%80%93%20Zemax.pdf" download class="download-btn">Download Report</a>
+        </div>
+        
+        <div class="project-card">
+          <h4>Anomalous Diffusion</h4>
+          <p><strong>Collaboration:</strong> Institut Lumière-Matière (Lyon)</p>
+          <p>Experimental study of light diffusion in Pierre Soulages' stained glass windows</p>
+          <a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Diffusion%20anormale%20dans%20les%20vitraux%20de%20Pierre%20Soulages_DIAGNE_TRAYNARD.pdf" download class="download-btn">Download Report</a>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>🌍 Volunteering & Experience</h2>
-      <ul>
-        <li>Scientific Outreach Project (2023): Contributed to a science popularization workshop on color science for primary school students</li>
-        <li>General Advisor, International Office – IOGS (2022–2023): Supported international students with administration, integration, and resource access</li>
-      </ul>
-    </section>
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+      <h2>📇 Contact Information</h2>
+      
+      <section>
+        <h3>Direct Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:talla.diagne@institutoptique.fr">talla.diagne@institutoptique.fr</a></p>
+        <p><strong>Location:</strong> Palaiseau, France</p>
+      </section>
 
-<section>
-  <h2>🧪 Academic Projects</h2>
-  <ul>
-    <li><a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Fluorescence%20spectroscopy%20for%20actinic%20keratosis_DIAGNE_LANNEAU.pdf" download="Rapport_Fluorescence.pdf">Fluorescence spectroscopy for actinic keratosis – with Saint-Etienne Hospital</a></li>
-    <li><a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Brain%20MRIs%20classification%20using%20machine%20learning_Talla%20DIAGNE.pdf" download>Brain MRIs classification using machine learning (PCA & k-NN)</a></li>
-    <li><a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Metalens%20design_GOHIER_DIAGNE.pdf" download="Metalens design.pdf">Metalens design – in collaboration with STMicroelectronics</a></li>
-    <li><a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Talla_DIAGNE___Head-Up%20Display%20design%20%26%20optimization%20%E2%80%93%20Zemax.pdf" download>Head-Up Display design & optimization – Zemax</a></li>
-    <li><a href="https://github.com/talladiagne/talladiagne.github.io/raw/main/Diffusion%20anormale%20dans%20les%20vitraux%20de%20Pierre%20Soulages_DIAGNE_TRAYNARD.pdf" download="Diffusion anormale dans les vitraux de Pierre Soulages.pdf">Anomalous Diffusion: Experimental study of Pierre Soulages' stained glass windows – with Institut Lumière-Matière (Lyon)</a></li>
-  </ul>
-</section>
-    <section>
-      <h2>📜 Certifications</h2>
-      <ul>
-        <li>TOEIC 980/990 (March 2025) – ETS Global</li>
-        <li>PCSL Level 3 – Laser Safety Certification (June 2023) – CEA</li>
-        <li>Electrical Clearance – BE Essai (March 2023) – Apave</li>
-      </ul>
-    </section>
+      <section>
+        <h3>Academic Profiles</h3>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/talla-diagne-29266819b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+          <li><a href="https://orcid.org/your-orcid" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+          <li><a href="https://github.com/talladiagne" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>📇 References</h2>
-      <p>Available on request</p>
+      <section>
+        <h3>References</h3>
+        <p>Available upon request. Please contact me via email.</p>
+      </section>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Talla DIAGNE | Academic Personal Website</p>
+    <p>© 2025 Talla DIAGNE | Academic Portfolio</p>
+    <p>Last updated: June 2025</p>
   </footer>
+
+  <script>
+    // Page navigation system
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show academic CV by default
+      document.querySelector('.page.active').classList.remove('active');
+      document.getElementById('academic-cv').classList.add('active');
+      
+      // Handle navigation clicks
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all nav links and pages
+          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+          document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+          
+          // Add active class to clicked link and corresponding page
+          this.classList.add('active');
+          const target = this.getAttribute('href').substring(1);
+          document.getElementById(target).classList.add('active');
+          
+          // Smooth scroll to top
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Handle initial hash in URL
+      if (window.location.hash) {
+        const targetLink = document.querySelector(`nav a[href="${window.location.hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
