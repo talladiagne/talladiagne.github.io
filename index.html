@@ -388,34 +388,37 @@
       </section>
     </section>
 
-   <!-- Projects Page -->
+<!-- Projects Page -->
 <section id="projects" class="page">
 
   <h2>📚 Research Publications</h2>
-        <ul>
-          <li>
-            P. Le Maitre, X. Leboeuf, T. Diagne, et al., "Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm," in Proceedings of <a href="https://eurodisplay2024.inviteo.fr/" target="_blank" rel="noopener noreferrer"> The Eurodisplay, Grenoble, France, 2024 </a>.
-            <a                download" 
-               class="download-btn">
-               Download Publication
-            </a>
-          </li>
-        </ul>
-  
+  <ul>
+    <li>
+      P. Le Maitre, X. Leboeuf, T. Diagne, et al., "Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm," in Proceedings of <a href="https://eurodisplay2024.inviteo.fr/" target="_blank" rel="noopener noreferrer">The Eurodisplay, Grenoble, France, 2024</a>.
+    </li>
+  </ul>
+
   <h2>🧪 Academic Projects</h2>
   
   <!-- Password Prompt (hidden by default) -->
   <div id="password-prompt" style="display: none; background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;">
     <h4>Document Access</h4>
     <p>Please enter the password to download project reports:</p>
-    <input type="password" id="document-password" placeholder="Enter access password" 
-           style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 200px; margin-right: 10px;">
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+      <input type="password" id="document-password" placeholder="Enter access password" 
+             style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 200px; margin-right: 10px;">
+      <button id="togglePassword" 
+              style="padding: 10px 15px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        Show
+      </button>
+    </div>
     <button onclick="checkPassword()" 
             style="padding: 10px 15px; background: #1d3557; color: white; border: none; border-radius: 4px; cursor: pointer;">
       Submit
     </button>
     <p id="password-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Please try again.</p>
   </div>
+
   <div class="project-grid">
     <div class="project-card">
       <h4>Fluorescence Spectroscopy</h4>
@@ -434,7 +437,7 @@
     <div class="project-card">
       <h4>Metalens Design</h4>
       <p><strong>Collaboration:</strong>
-        <a href="https://www.st.com/content/st_com/en.html" target="_blank" rel="noopener noreferrer"> STMicroelectronics </a></p>
+        <a href="https://www.st.com/content/st_com/en.html" target="_blank" rel="noopener noreferrer">STMicroelectronics</a></p>
       <p>Design and optimization of metalenses for advanced optical applications</p>
       <a href="#" class="download-btn" data-pdf="Metalens%20design_GOHIER_DIAGNE.pdf">Download Report</a>
     </div>
@@ -449,7 +452,7 @@
     <div class="project-card">
       <h4>Anomalous Diffusion</h4>
       <p><strong>Collaboration:</strong> 
-         <a href="https://ilm.univ-lyon1.fr/index.php?option=com_content&view=article&id=60" target="_blank" rel="noopener noreferrer"> Institut Lumière-Matière (Lyon) </a></p>
+         <a href="https://ilm.univ-lyon1.fr/index.php?option=com_content&view=article&id=60" target="_blank" rel="noopener noreferrer">Institut Lumière-Matière (Lyon)</a></p>
       <p>Experimental study of light diffusion in Pierre Soulages' stained glass windows</p>
       <a href="#" class="download-btn" data-pdf="Diffusion%20anormale%20dans%20les%20vitraux%20de%20Pierre%20Soulages_DIAGNE_TRAYNARD.pdf">Download Report</a>
     </div>
@@ -457,9 +460,25 @@
 
   <script>
     // Configuration - Change this password!
-    const CORRECT_PASSWORD = "Optics2025"; // Remplacez par votre mot de passe
+    const CORRECT_PASSWORD = "Optics2025"; // Replace with your password
     
     let authenticated = sessionStorage.getItem('authenticated') === 'true';
+
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const passwordInput = document.getElementById('document-password');
+      const toggleButton = document.getElementById('togglePassword');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleButton.textContent = 'Hide';
+        toggleButton.style.backgroundColor = '#495057';
+      } else {
+        passwordInput.type = 'password';
+        toggleButton.textContent = 'Show';
+        toggleButton.style.backgroundColor = '#6c757d';
+      }
+    });
 
     function checkPassword() {
       const input = document.getElementById('document-password').value;
@@ -474,14 +493,14 @@
     }
 
     function activateDownloadLinks() {
-      document.querySelectorAll('.download-btn').forEach(btn => {
+      document.querySelectorAll('.project-card .download-btn').forEach(btn => {
         const pdf = btn.getAttribute('data-pdf');
         btn.href = `https://github.com/talladiagne/talladiagne.github.io/raw/main/${pdf}`;
       });
     }
 
     // Initialize download buttons
-    document.querySelectorAll('.download-btn').forEach(btn => {
+    document.querySelectorAll('.project-card .download-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
         if (!authenticated) {
           e.preventDefault();
