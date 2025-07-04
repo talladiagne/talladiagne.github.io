@@ -399,143 +399,144 @@
   </ul>
 
   <h2>🧪 Academic Projects</h2>
-  
-  <!-- Password Prompt (hidden by default) -->
-  <div id="password-prompt" style="display: none; background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;">
-    <h4>Document Access</h4>
-    <p>Please enter the password to download project reports:</p>
-    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-      <input type="password" id="document-password" placeholder="Enter access password" 
-             style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 200px; margin-right: 10px;">
-      <button id="togglePassword" 
-              style="padding: 10px 15px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        Show
-      </button>
-    </div>
-    <button onclick="checkPassword()" 
-            style="padding: 10px 15px; background: #1d3557; color: white; border: none; border-radius: 4px; cursor: pointer;">
-      Submit
+
+<!-- Password Prompt (hidden by default) -->
+<div id="password-prompt" style="display: none; background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;">
+  <h4>Document Access</h4>
+  <p>Please enter the password to download project reports:</p>
+  <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+    <input type="password" id="document-password" placeholder="Enter access password" 
+           style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 200px; margin-right: 10px;">
+    <button id="togglePassword" 
+            style="padding: 10px 15px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Show
     </button>
-    <p id="password-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Please try again.</p>
   </div>
+  <button onclick="checkPassword()" 
+          style="padding: 10px 15px; background: #1d3557; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    Submit
+  </button>
+  <p id="password-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Please try again.</p>
+</div>
 
-  <div class="project-grid">
-    <div class="project-card">
-      <h4>Apprenticeship report, 3rd year (English)</h4>
-      <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
-      <a href="#" class="download-btn" data-pdf="Talla%20DIAGNE%20_%20Rapport_1A.pdf">Download Report</a>
-    </div>
-         
-    <div class="project-card">
-      <h4>Apprenticeship report, 2nd year (French)</h4>
-      <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
-      <a href="#" class="download-btn" data-pdf="Talla%20DIAGNE%20_%20Rapport_2A.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Apprenticeship report, 1st year (French)</h4>
-      <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
-      <a href="#" class="download-btn" data-pdf="Talla%20DIAGNE%20_%20Rapport_1A.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Fluorescence Spectroscopy (French)</h4>
-      <p><strong>Collaboration:</strong> Saint-Etienne Hospital</p>
-      <p>Research on actinic keratosis detection using fluorescence spectroscopy techniques</p>
-      <a href="#" class="download-btn" data-pdf="Fluorescence%20spectroscopy%20for%20actinic%20keratosis_DIAGNE_LANNEAU.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Brain MRI Classification (English)</h4>
-      <p><strong>Techniques:</strong> PCA & k-NN machine learning</p>
-      <p>Development of classification algorithms for brain MRIs using dimensionality reduction and nearest neighbor methods</p>
-      <a href="#" class="download-btn" data-pdf="Brain%20MRIs%20classification%20using%20machine%20learning_Talla%20DIAGNE.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Metalens Design (English)</h4>
-      <p><strong>Collaboration:</strong>
-        <a href="https://www.st.com/content/st_com/en.html" target="_blank" rel="noopener noreferrer">STMicroelectronics</a></p>
-      <p>Design and optimization of metalenses for advanced optical applications</p>
-      <a href="#" class="download-btn" data-pdf="Metalens%20design_GOHIER_DIAGNE.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Head-Up Display (French)</h4>
-      <p><strong>Tools:</strong> Zemax</p>
-      <p>Optical design and optimization of head-up display systems</p>
-      <a href="#" class="download-btn" data-pdf="Talla_DIAGNE___Head-Up%20Display%20design%20%26%20optimization%20%E2%80%93%20Zemax.pdf">Download Report</a>
-    </div>
-    
-    <div class="project-card">
-      <h4>Anomalous Diffusion (French)</h4>
-      <p><strong>Collaboration:</strong> 
-         <a href="https://ilm.univ-lyon1.fr/index.php?option=com_content&view=article&id=60" target="_blank" rel="noopener noreferrer">Institut Lumière-Matière (Lyon)</a></p>
-      <p>Experimental study of light diffusion in Pierre Soulages' stained glass windows</p>
-      <a href="#" class="download-btn" data-pdf="Diffusion%20anormale%20dans%20les%20vitraux%20de%20Pierre%20Soulages_DIAGNE_TRAYNARD.pdf">Download Report</a>
-    </div>
+<div class="project-grid">
+  <!-- Rapport 3A - Sans mot de passe -->
+ <!-- Dans la section des projets, modifiez le bouton du rapport 3A comme ceci -->
+<div class="project-card">
+  <h4>Apprenticeship report, 3rd year (English)</h4>
+  <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
+  <a href="Talla_DIAGNE___Rapport_3A.pdf" class="download-btn" download>
+    Download Report
+  </a>
+</div>
+       
+  <!-- Autres rapports - Avec cadenas et mot de passe -->
+  <div class="project-card">
+    <h4>Apprenticeship report, 2nd year (French) 🔒</h4>
+    <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
+    <a href="#" class="download-btn" data-pdf="Talla%20DIAGNE%20_%20Rapport_2A.pdf">Download Report</a>
   </div>
+  
+  <div class="project-card">
+    <h4>Apprenticeship report, 1st year (French) 🔒</h4>
+    <p>Integration, piloting and testing of innovative photometric measuring instruments</p>
+    <a href="#" class="download-btn" data-pdf="Talla%20DIAGNE%20_%20Rapport_1A.pdf">Download Report</a>
+  </div>
+  
+  <div class="project-card">
+    <h4>Fluorescence Spectroscopy (French) 🔒</h4>
+    <p><strong>Collaboration:</strong> Saint-Etienne Hospital</p>
+    <p>Research on actinic keratosis detection using fluorescence spectroscopy techniques</p>
+    <a href="#" class="download-btn" data-pdf="Fluorescence%20spectroscopy%20for%20actinic%20keratosis_DIAGNE_LANNEAU.pdf">Download Report</a>
+  </div>
+  
+  <div class="project-card">
+    <h4>Brain MRI Classification (English) 🔒</h4>
+    <p><strong>Techniques:</strong> PCA & k-NN machine learning</p>
+    <p>Development of classification algorithms for brain MRIs using dimensionality reduction and nearest neighbor methods</p>
+    <a href="#" class="download-btn" data-pdf="Brain%20MRIs%20classification%20using%20machine%20learning_Talla%20DIAGNE.pdf">Download Report</a>
+  </div>
+  
+  <div class="project-card">
+    <h4>Metalens Design (English) 🔒</h4>
+    <p><strong>Collaboration:</strong>
+      <a href="https://www.st.com/content/st_com/en.html" target="_blank" rel="noopener noreferrer">STMicroelectronics</a></p>
+    <p>Design and optimization of metalenses for advanced optical applications</p>
+    <a href="#" class="download-btn" data-pdf="Metalens%20design_GOHIER_DIAGNE.pdf">Download Report</a>
+  </div>
+  
+  <div class="project-card">
+    <h4>Head-Up Display (French) 🔒</h4>
+    <p><strong>Tools:</strong> Zemax</p>
+    <p>Optical design and optimization of head-up display systems</p>
+    <a href="#" class="download-btn" data-pdf="Talla_DIAGNE___Head-Up%20Display%20design%20%26%20optimization%20%E2%80%93%20Zemax.pdf">Download Report</a>
+  </div>
+  
+  <div class="project-card">
+    <h4>Anomalous Diffusion (French) 🔒</h4>
+    <p><strong>Collaboration:</strong> 
+       <a href="https://ilm.univ-lyon1.fr/index.php?option=com_content&view=article&id=60" target="_blank" rel="noopener noreferrer">Institut Lumière-Matière (Lyon)</a></p>
+    <p>Experimental study of light diffusion in Pierre Soulages' stained glass windows</p>
+    <a href="#" class="download-btn" data-pdf="Diffusion%20anormale%20dans%20les%20vitraux%20de%20Pierre%20Soulages_DIAGNE_TRAYNARD.pdf">Download Report</a>
+  </div>
+</div>
 
-  <script>
-    // Configuration - Change this password!
-    const CORRECT_PASSWORD = "Optics2025"; // Replace with your password
-    
-    let authenticated = sessionStorage.getItem('authenticated') === 'true';
+<script>
+// Fonction pour vérifier le mot de passe
+function checkPassword() {
+  const password = document.getElementById('document-password').value;
+  const correctPassword = "votre_mot_de_passe"; // Remplacez par votre vrai mot de passe
+  const errorElement = document.getElementById('password-error');
+  
+  if (password === correctPassword) {
+    // Stocker que l'utilisateur est authentifié
+    sessionStorage.setItem('authenticated', 'true');
+    // Masquer la prompt
+    document.getElementById('password-prompt').style.display = 'none';
+    // Autoriser les téléchargements
+    enableDownloads();
+  } else {
+    errorElement.style.display = 'block';
+  }
+}
 
-    // Toggle password visibility
-    document.getElementById('togglePassword').addEventListener('click', function() {
-      const passwordInput = document.getElementById('document-password');
-      const toggleButton = document.getElementById('togglePassword');
-      
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleButton.textContent = 'Hide';
-        toggleButton.style.backgroundColor = '#495057';
-      } else {
-        passwordInput.type = 'password';
-        toggleButton.textContent = 'Show';
-        toggleButton.style.backgroundColor = '#6c757d';
-      }
-    });
-
-    function checkPassword() {
-      const input = document.getElementById('document-password').value;
-      if (input === CORRECT_PASSWORD) {
-        authenticated = true;
-        sessionStorage.setItem('authenticated', 'true');
-        document.getElementById('password-prompt').style.display = 'none';
-        activateDownloadLinks();
-      } else {
-        document.getElementById('password-error').style.display = 'block';
-      }
+// Fonction pour activer les téléchargements
+function enableDownloads() {
+  document.querySelectorAll('.download-btn').forEach(btn => {
+    const pdf = btn.getAttribute('data-pdf');
+    if (pdf) {
+      btn.href = pdf;
+      btn.setAttribute('download', '');
     }
+  });
+}
 
-    function activateDownloadLinks() {
-      document.querySelectorAll('.project-card .download-btn').forEach(btn => {
-        const pdf = btn.getAttribute('data-pdf');
-        btn.href = `https://github.com/talladiagne/talladiagne.github.io/raw/main/${pdf}`;
-      });
+// Gestion du clic sur les boutons de téléchargement
+document.querySelectorAll('.download-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    // Si le bouton a un attribut data-pdf (donc protégé)
+    if (this.getAttribute('data-pdf') && sessionStorage.getItem('authenticated') !== 'true') {
+      e.preventDefault();
+      // Afficher la prompt de mot de passe
+      document.getElementById('password-prompt').style.display = 'block';
     }
+    // Sinon, le téléchargement se fait normalement (pour le rapport 3A)
+  });
+});
 
-    // Initialize download buttons
-    document.querySelectorAll('.project-card .download-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        if (!authenticated) {
-          e.preventDefault();
-          document.getElementById('password-prompt').style.display = 'block';
-          window.scrollTo({
-            top: document.getElementById('password-prompt').offsetTop - 20,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // If already authenticated, activate links immediately
-    if (authenticated) {
-      activateDownloadLinks();
-    }
-  </script>
+// Bouton pour afficher/masquer le mot de passe
+document.getElementById('togglePassword').addEventListener('click', function(e) {
+  e.preventDefault();
+  const passwordInput = document.getElementById('document-password');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    this.textContent = 'Hide';
+  } else {
+    passwordInput.type = 'password';
+    this.textContent = 'Show';
+  }
+});
+</script>
 </section>
 
     <!-- Contact Page -->
