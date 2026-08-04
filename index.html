@@ -543,6 +543,10 @@
     <section id="projects" class="page">
       <h2 data-en="📚 Research Publications" data-fr="📚 Publications Scientifiques">📚 Research Publications</h2>
       <ul>
+        <li data-en="T. Diagne, N. Jeannin, N. Wyrsch, J. Dumoulin, &quot;<a href=&quot;https://zenodo.org/records/21415652&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>The potential for PV-powered electric vehicle charging in Dakar, Senegal: An EVPV-Simulator case study</a>,&quot; Zenodo, 2026. doi:10.5281/zenodo.21415652."
+            data-fr="T. Diagne, N. Jeannin, N. Wyrsch, J. Dumoulin, &quot;<a href=&quot;https://zenodo.org/records/21415652&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Le potentiel de la recharge de véhicules électriques par énergie photovoltaïque à Dakar, Sénégal : une étude de cas avec EVPV-Simulator</a>,&quot; Zenodo, 2026. doi:10.5281/zenodo.21415652.">
+          T. Diagne, N. Jeannin, N. Wyrsch, J. Dumoulin, "<a href="https://zenodo.org/records/21415652" target="_blank" rel="noopener">The potential for PV-powered electric vehicle charging in Dakar, Senegal: An EVPV-Simulator case study</a>," Zenodo, 2026. doi:10.5281/zenodo.21415652.
+        </li>
         <li data-en="P. Le Maitre, X. Leboeuf, T. Diagne, et al., 'Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm,' in Proceedings of The Eurodisplay, Grenoble, France, 2024."
             data-fr="P. Le Maitre, X. Leboeuf, T. Diagne, et al., 'Caractérisation de matrices de microLEDs GaN-sur-Si utilisant un nouveau photomètre imageur à champ ultra-large résolvant des pixels de microLED jusqu'à 2.5 µm,' dans les Actes de The Eurodisplay, Grenoble, France, 2024.">
           P. Le Maitre, X. Leboeuf, T. Diagne, et al., "Characterization of GaN-on-Si microLEDs matrix using a new ultra wide field of view imaging photometer resolving microLED pixel size down to 2.5 µm," in Proceedings of The Eurodisplay, Grenoble, France, 2024.
@@ -700,8 +704,8 @@
       
       <section>
         <h3 data-en="Direct Contact" data-fr="Contact Direct">Direct Contact</h3>
-        <p><strong data-en="Email:" data-fr="Email :">Email:</strong> <a href="mailto:talla.diagne@institutoptique.fr">talla.diagne@institutoptique.fr</a></p>
-        <p><strong data-en="Location:" data-fr="Localisation :">Location:</strong> <span data-en="Palaiseau, France" data-fr="Palaiseau, France">Palaiseau, France</span></p>
+        <p><strong data-en="Email:" data-fr="Email :">Email:</strong> <a href="mailto:talla.diagne@institutoptique.fr">talla.diagne@cea.fr</a></p>
+        <p><strong data-en="Location:" data-fr="Localisation :">Location:</strong> <span data-en="Palaiseau, France" data-fr="Gif-sur-Yvette, France">Gif-sur-Yvette, France</span></p>
       </section>
 
       <section>
@@ -778,7 +782,7 @@
       }
     });
 
-  // Traduction du site - Version corrigée
+  // Traduction du site - Version corrigée (utilise innerHTML pour garder les liens cliquables)
   document.getElementById('translate-btn').addEventListener('click', function() {
     const isCurrentlyEnglish = this.textContent === 'FR'; // Si le bouton montre 'FR', c'est que la langue actuelle est anglais
     
@@ -788,18 +792,18 @@
       if (element.hasAttribute('data-en') && element.hasAttribute('data-fr')) {
         if (isCurrentlyEnglish) {
           // Passer au français
-          element.textContent = element.getAttribute('data-fr');
+          element.innerHTML = element.getAttribute('data-fr');
         } else {
           // Revenir à l'anglais
-          element.textContent = element.getAttribute('data-en');
+          element.innerHTML = element.getAttribute('data-en');
         }
       }
       // Pour les éléments avec un seul attribut
       else if (isCurrentlyEnglish && element.hasAttribute('data-fr')) {
-        element.textContent = element.getAttribute('data-fr');
+        element.innerHTML = element.getAttribute('data-fr');
       } 
       else if (!isCurrentlyEnglish && element.hasAttribute('data-en')) {
-        element.textContent = element.getAttribute('data-en');
+        element.innerHTML = element.getAttribute('data-en');
       }
       
       // Gestion spéciale des placeholders
