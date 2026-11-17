@@ -461,6 +461,139 @@
         </div>
       </section>
 
+      <!-- ============================================================
+     FRISE CHRONOLOGIQUE – à coller dans #academic-cv,
+     juste après <h2>…Academic Curriculum Vitae</h2>
+     Bilingue : utilise data-en / data-fr (compatible avec ton bouton FR/EN)
+     Échelle : sept. 2020 → déc. 2026 (76 mois), 1 mois = 1,3158 %
+     ============================================================ -->
+
+<style>
+  .frise { margin: 1rem 0 2rem; }
+  .frise-scroll { overflow-x: auto; padding-bottom: .5rem; }
+  .frise-inner { min-width: 1000px; }
+  .frise-body { position: relative; padding-top: 1.6rem; }
+
+  /* Repères annuels (rentrée de septembre) */
+  .frise-gl { position: absolute; top: 0; bottom: 0; width: 1px; background: #dfe3e8; }
+  .frise-gl span {
+    position: absolute; top: 0; left: 5px;
+    font-size: .75rem; font-weight: 600; color: var(--primary, #1d3557);
+  }
+
+  .frise-group { position: relative; margin-bottom: 1.1rem; }
+  .frise-group-title {
+    font-size: .8rem; font-weight: 700; color: var(--primary, #1d3557);
+    margin: 0 0 .35rem; position: relative; z-index: 2;
+  }
+  .frise-lane { position: relative; height: 34px; margin-bottom: 6px; }
+
+  .frise-bar {
+    position: absolute; top: 0; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 10px; box-sizing: border-box; overflow: hidden;
+    border-radius: 4px; color: #fff; line-height: 1.15;
+    background: var(--secondary, #457b9d);
+    z-index: 1;
+  }
+  .frise-bar .t { font-size: .78rem; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+  .frise-bar .d { font-size: .68rem; opacity: .85; white-space: nowrap; }
+
+  .frise-pro   { background: var(--primary, #1d3557); }
+  .frise-phd   { background: #c8553d; }
+  /* Poste en cours : extrémité en flèche */
+  .frise-now   { border-radius: 4px 0 0 4px; padding-right: 18px;
+                 clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+
+  /* Barre trop courte pour son texte : libellé à gauche */
+  .frise-bar.frise-short { overflow: visible; padding: 0; }
+  .frise-bar.frise-short .out {
+    position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%);
+    white-space: nowrap; text-align: right; color: var(--primary, #1d3557);
+    font-size: .78rem; font-weight: 600; line-height: 1.15;
+  }
+  .frise-bar.frise-short .out small { display: block; font-size: .68rem; font-weight: 400; color: #555; }
+
+  /* Jalons (communications) */
+  .frise-ms { position: absolute; top: 50%; transform: translate(-100%, -50%);
+              display: flex; align-items: center; gap: 7px; white-space: nowrap;
+              font-size: .74rem; color: var(--text, #333); z-index: 1; }
+  .frise-ms i { width: 11px; height: 11px; border-radius: 50%; background: var(--secondary, #457b9d);
+                border: 2px solid #fff; box-shadow: 0 0 0 1px var(--secondary, #457b9d); flex: none; }
+  .frise-ms.award i { background: #c8553d; box-shadow: 0 0 0 1px #c8553d; }
+  .frise-ms b { font-weight: 600; }
+
+  .frise-note { font-size: .85rem; color: #555; margin: .6rem 0 0; }
+</style>
+
+<div class="frise">
+  <div class="frise-scroll">
+    <div class="frise-inner">
+      <div class="frise-body">
+
+        <!-- repères annuels -->
+        <div class="frise-gl" style="left:0%"><span>2020</span></div>
+        <div class="frise-gl" style="left:15.79%"><span>2021</span></div>
+        <div class="frise-gl" style="left:31.58%"><span>2022</span></div>
+        <div class="frise-gl" style="left:47.37%"><span>2023</span></div>
+        <div class="frise-gl" style="left:63.16%"><span>2024</span></div>
+        <div class="frise-gl" style="left:78.95%"><span>2025</span></div>
+        <div class="frise-gl" style="left:94.74%"><span>2026</span></div>
+
+        <!-- FORMATION -->
+        <div class="frise-group">
+          <p class="frise-group-title" data-en="Education" data-fr="Formation">Education</p>
+          <div class="frise-lane">
+            <div class="frise-bar" style="left:0%; width:30.26%;">
+              <span class="t" data-en="CPGE PCSI/PC – Lycée Poincaré" data-fr="CPGE PCSI/PC – Lycée Poincaré">CPGE PCSI/PC – Lycée Poincaré</span>
+              <span class="d" data-en="Sept. 2020 – July 2022" data-fr="Sept. 2020 – Juil. 2022">Sept. 2020 – July 2022</span>
+            </div>
+            <div class="frise-bar" style="left:31.58%; width:47.37%;">
+              <span class="t" data-en="Engineering degree, Optics & Photonics – IOGS" data-fr="Ingénieur Optique & Photonique – IOGS">Engineering degree, Optics & Photonics – IOGS</span>
+              <span class="d" data-en="Sept. 2022 – Sept. 2025" data-fr="Sept. 2022 – Sept. 2025">Sept. 2022 – Sept. 2025</span>
+            </div>
+          </div>
+          <div class="frise-lane">
+            <div class="frise-bar" style="left:47.37%; width:31.58%;">
+              <span class="t" data-en="Dual degree MSc OIVM-AIMA – Univ. Jean Monnet" data-fr="Double diplôme Master OIVM-AIMA – Univ. Jean Monnet">Dual degree MSc OIVM-AIMA – Univ. Jean Monnet</span>
+              <span class="d" data-en="Sept. 2023 – Sept. 2025" data-fr="Sept. 2023 – Sept. 2025">Sept. 2023 – Sept. 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPÉRIENCE -->
+        <div class="frise-group">
+          <p class="frise-group-title" data-en="Professional experience" data-fr="Expérience professionnelle">Professional experience</p>
+          <div class="frise-lane">
+            <div class="frise-bar frise-pro" style="left:35.53%; width:43.42%;">
+              <span class="t" data-en="Apprentice research engineer – CEA LETI, Grenoble" data-fr="Ingénieur de recherche en apprentissage – CEA LETI, Grenoble">Apprentice research engineer – CEA LETI, Grenoble</span>
+              <span class="d" data-en="Dec. 2022 – Sept. 2025" data-fr="Déc. 2022 – Sept. 2025">Dec. 2022 – Sept. 2025</span>
+            </div>
+            <div class="frise-bar frise-pro frise-now" style="left:78.95%; width:21.05%;">
+              <span class="t" data-en="Teaching assistant – IOGS" data-fr="Doctorant-enseignant – IOGS">Teaching assistant – IOGS</span>
+              <span class="d" data-en="Sept. 2025 – present" data-fr="Sept. 2025 – en cours">Sept. 2025 – present</span>
+            </div>
+          </div>
+          <div class="frise-lane">
+            <div class="frise-bar frise-pro frise-short" style="left:76.32%; width:2.63%;">
+              <span class="out">
+                <span data-en="Research intern – PV-Lab, EPFL" data-fr="Stagiaire chercheur – PV-Lab, EPFL">Research intern – PV-Lab, EPFL</span>
+                <small data-en="Jul. – Sept. 2025" data-fr="Juil. – Sept. 2025">Jul. – Sept. 2025</small>
+              </span>
+            </div>
+            <div class="frise-bar frise-phd frise-now" style="left:80.26%; width:19.74%;">
+              <span class="t" data-en="PhD student – CEA SPEC / LEPO" data-fr="Doctorant – CEA SPEC / LEPO">PhD student – CEA SPEC / LEPO</span>
+              <span class="d" data-en="Oct. 2025 – present" data-fr="Oct. 2025 – en cours">Oct. 2025 – present</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
       <section>
         <h3 data-en="🧠 Skills" data-fr="🧠 Compétences">🧠 Skills</h3>
         <div class="skills-category">
